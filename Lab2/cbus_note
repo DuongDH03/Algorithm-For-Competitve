@@ -1,0 +1,17 @@
+TSP extension: 2n+1: 0..2n seats
+
+TRY(k) {
+    for (1..2n){
+        if (!visited[i]){
+            if (i<=n)
+                if (seats <= k)
+                    X[k] = i;
+            else 
+                if (visited == 1)
+                    X[k] = i;
+        }
+    }
+}
+
+Branch and bound cond: (curr + Cmin * (2 * m - k + 1) < result)
+                Cmin = min(c[i][j])
