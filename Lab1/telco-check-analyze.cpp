@@ -10,7 +10,7 @@ bool checkPhone (string s){
 }
 
 int countTime (string ftime, string etime){
-    int startTime = 3600*((ftime[0]-'0')*10 + ftime[1]-'0') + 60*((ftime[3]-'0')*10 + ftimLab1/telco-check-analyze.cppe[4]-'0') + ((ftime[6]-'0')*10 + ftime[7]-'0');
+    int startTime = 3600*((ftime[0]-'0')*10 + ftime[1]-'0') + 60*((ftime[3]-'0')*10 + ftime[4]-'0') + ((ftime[6]-'0')*10 + ftime[7]-'0');
     int endTime = 3600*((etime[0]-'0')*10 + etime[1]-'0') + 60*((etime[3]-'0')*10 + etime[4]-'0') + ((etime[6]-'0')*10 + etime[7]-'0');
     return endTime - startTime;
 }
@@ -46,14 +46,14 @@ int main(){
         else if (type == "?number_calls_from") {
             string phone;
             cin >> phone;
-            cout << numberCalls[phone] << endl;
+            cout << numberCalls[phone] << '\n';
         }
         else if (type == "?number_total_calls")
             cout << totalCalls << endl;
         else if (type == "?count_time_calls_from") {
             string phone;
             cin >> phone;
-            cout << timeCall[phone] << endl;
+            cout << timeCall[phone] << '\n';
         }
     }
     while (type!="#");

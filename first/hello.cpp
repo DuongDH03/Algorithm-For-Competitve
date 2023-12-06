@@ -2,27 +2,16 @@
 using namespace std;
 
 int main () {
+    cout << "Hello World!" << endl;
+
     int a,b;
-    cout << "Nhap 2 cai coc" << endl;
-    cin >> a >> b;
-    int c = 1;
 
-    int i = 0;
-    while (i < 10)
-    {
-        c = c * a;
-        i++;
-    }
+    cout << "Enter a number: ";
 
-    for (int i = 0; i < 10; i++) {
-        c = c * a;
-    }
-    
+    cin >> a;  
+    cin >> b;
 
-    cout << c;
+    cout << "Tong 2 so la " << a * b  << endl;
 
-    int c;
-    c = a * b;
-    cout << "Cai coc nay chua" << endl << c;
     return 0;
 }
