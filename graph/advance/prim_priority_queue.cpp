@@ -2,6 +2,7 @@
 
 using namespace std;
 
+typedef pair<int,int> ii;
 const int N = 1e4 + 5;
 const int inf = 1e9 + 7;
 int n,m;
@@ -13,6 +14,46 @@ struct edge {
 };
 
 vector< vector<edge> > adj;
+
+vector<edge> primPQ(int start, const vector< vector<edge> > &adj) {
+    priority_queue< ii, vector<ii>, greater<ii> > PQ;
+    int n = adj.size() - 1;
+    vector<int> near(n + 5, -1); 
+    vector<int> dist(n + 5, inf); 
+    vector<edge> res;
+    dist[start] = 0;
+    PQ.push(make_pair(0, start));
+    while (res.size() < n - 1) {
+        int u = -1;
+        int v = -1;
+        int minDist = inf;
+
+        while (!PQ.empty() && PQ.top().first != dist[PQ.top().second]) {
+            ii top = PQ.top();
+            PQ.pop();
+        }
+        if (PQ.empty())
+                return res;
+        v = PQ.top().second;
+        PQ.pop();
+        minDist = PQ.top().first;
+        u = near[v];
+
+        if (v != start)
+            res.push_back(edge(u,v,minDist));
+
+        for (const edge &e : adj[v]) {
+            int u = e.v, w = e.w;
+            //cout << v << ' ' << u << ' ' << dist[u] << ' ' << w << endl;             
+            if (dist[u] > w) {
+                dist[u] = w;
+                near[u] = v;
+                PQ.push(make_pair(dist[u], u));
+            }
+        }
+    }
+    return res;
+}
 
 void input () {
     cin >> n >> m;
@@ -65,7 +106,7 @@ int main() {
     cin.tie(0); cout.tie(0);
     freopen("graph_inp", "r", stdin);
     input();
-    vector<edge> res = prim(1, adj);
+    vector<edge> res = primPQ(1, adj);
     for (const edge &e : res) {
         cout << e.u << ' ' << e.v << ' ' << e.w << '\n';
     }
