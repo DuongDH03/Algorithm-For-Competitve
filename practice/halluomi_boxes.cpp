@@ -8,8 +8,9 @@ vector<int> a;
 
 // t number of test case
 // n number of boxes
-// k number of boxes to be sorted non decreasingly
 // a[i] number written on the box
+// k number of maximum boxes to be reversed non decreasingly, meaning if k = 3, then we could count the k = 2 case as well
+// k = 2 means that we swap 2 adjacent boxes
 
 // solve print out yes/no, if the boxes can be sorted non decreasingly by k boxes
 
