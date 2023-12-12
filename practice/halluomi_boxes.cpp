@@ -15,7 +15,8 @@ vector<int> a;
 
 
 void solve () {
-
+    // if array is already sorted or k>1, then yes
+    // k = 1, array still the same
     if (is_sorted(a.begin(), a.end()) || k > 1) {
         cout << "YES\n";
         return;
