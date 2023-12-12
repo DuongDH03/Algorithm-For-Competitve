@@ -7,10 +7,11 @@ int main(){
     cin.tie(NULL);
     cout.tie(NULL);
     
-    long long a,b;
-    long long prod = a*b;
-    cin >> a >> b;
-    cout << a/b << endl << a%b << endl << prod;
+    vector<int> a;
+    int val;
+    cin >> val;
+    a.push_back(val);
+    cout << a[0] << "\n";
 
     return 0;
 }
