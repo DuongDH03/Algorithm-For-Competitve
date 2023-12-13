@@ -6,6 +6,7 @@
         "vector": "cpp",
         "ostream": "cpp",
         "algorithm": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "*.tcc": "cpp"
     }
 }
