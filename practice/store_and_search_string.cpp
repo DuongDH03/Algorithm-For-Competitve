@@ -2,12 +2,13 @@
 
 using namespace std;
 
-vector<string> v;
+unordered_map<string, int> m;
 string s;
+int i = 0;
 
 
 bool find_query(string s) {
-    if (find(v.begin(), v.end(), s) != v.end()) {
+    if (m.find(s) != m.end()) {
         return 1;
     } else {
         return 0;
@@ -23,7 +24,8 @@ int main() {
     while (true) {
         cin >> s;
         if (s == "*") break;
-        v.push_back(s);
+        m[s] = i;
+        i++;
     }
 
     while (true) {
@@ -39,7 +41,8 @@ int main() {
             if (find_query(s)) {
                 cout << "0\n";
             } else {
-                v.push_back(s);
+                m[s] = i;
+                i++;
                 cout << "1\n";
             }
         }
